@@ -1,0 +1,15 @@
+{
+  "name": "shopping_card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tailwindcss -i ./asset/CSS/style.css -o ./asset/dist/output.css --watch",
+    "build": "tailwindcss -i ./asset/CSS/style.css -o ./asset/dist/output.css --minify"
+  },
+  "author": "hosseinfalah",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}

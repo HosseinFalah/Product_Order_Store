@@ -201,9 +201,14 @@ document.addEventListener("DOMContentLoaded", () => {
             // 4.update cart item in ui:
             addQuantity.nextElementSibling.innerText = addedItem.quantity;
         } else if (event.target.classList.contains("fa-chevron-down")) {
+            const arrowDown = document.querySelector(".fa-chevron-down")
             const subQuantity = event.target
             // 1.get item from cart
             const subStractedItem = cardBasket.find(item => item.id == subQuantity.dataset.id)
+            if (subStractedItem.quantity === 1) {
+                Ui.removeItem(subStractedItem.id)
+                arrowDown.parentElement.parentElement.parentElement.parentElement.remove()
+            }
             subStractedItem.quantity--
             // 2.update cart value
             Ui.setCartValue(cardBasket)

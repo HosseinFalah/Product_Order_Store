@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 @import "./Vazirmatn-font-face.css";
+
+.particles-js-canvas-el{
+    padding-top: 50px;
+    position: absolute;
+    z-index: 5;
+}

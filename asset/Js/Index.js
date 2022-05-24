@@ -107,7 +107,7 @@ class UI{
                         <i class="fa-solid fa-chevron-down text-red-500 cursor-pointer" data-id="${cartItem.id}"></i>
                     </div>
                     <div class="flex">
-                        <i class="fas fa-trash" data-id="${cartItem.id}"></i>
+                        <i class="fas fa-trash bg-red-500 text-white px-2 py-3 rounded" id="trashProduct" data-id="${cartItem.id}"></i>
                     </div>
                 </div>
             </div>
@@ -211,6 +211,13 @@ document.addEventListener("DOMContentLoaded", () => {
             Storage.saveCart(cardBasket)
             // 4.update cart item in ui:
             subQuantity.previousElementSibling.innerText = subStractedItem.quantity;
+        } else if(event.target.classList.contains("fa-trash")){
+            const trash = document.querySelector("#trashProduct");
+            const removeItem = event.target;
+            const _removedItem = cardBasket.find(item => +item.id === +removeItem.dataset.id)
+            Ui.removeItem(_removedItem.id)
+            Storage.saveCart(cardBasket)
+            trash.parentElement.parentElement.parentElement.parentElement.remove()
         }
     })
 

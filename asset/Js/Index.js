@@ -136,7 +136,6 @@ class UI{
     removeItem(id){
         // update Cart
         cardBasket = cardBasket.filter(cartItem => cartItem.id !== id)
-        console.log(cardBasket);
         // total Price and cart Items
         this.setCartValue(cardBasket);
         // update Storage:
@@ -193,7 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // 1.get item from cart
             const addedItem = cardBasket.find(item => +item.id == +addQuantity.dataset.id)
             addedItem.quantity++;
-            console.log(cardBasket);
             // 2.update cart value
             Ui.setCartValue(cardBasket)
             // 3.save cart
